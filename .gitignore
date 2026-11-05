@@ -1,0 +1,17 @@
+*.root
+*.pdf
+*.png
+*.in
+*.txt
+*.list
+*.guess
+*.sub
+*.m4
+
+autom4te.cache/
+depcomp
+install-sh
+configure
+compile
+ltmain.sh
+missing
