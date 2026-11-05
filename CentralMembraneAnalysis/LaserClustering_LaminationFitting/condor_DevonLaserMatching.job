@@ -1,0 +1,11 @@
+Universe	= vanilla
+Executable	= BenLaserMatching_clean.sh
+notification	= Never
+Output		= /sphenix/user/bkimelman/logs/BenProduction/laserMatch_run$(runnumber)_$(clusterId).$(process).txt
+Error		= /sphenix/user/bkimelman/logs/BenProduction/laserMatch_run$(runnumber)_$(clusterId).$(process).err
+Log		= /tmp/condor_bkimelman_$(clusterId).$(process).log
+Initialdir	= /sphenix/u/bkimelman/macros/TrackingProduction
+Arguments	= $(runnumber) ana532_2025p009_v001 run3pp $(skipOutliers) $(manualInterp) Jan28_2026_CMMatching_79500s Jan28_2025_LaminationFits_run3pp
+request_memory	= 16000MB
+PeriodicHold = (NumJobStarts>=1 && JobStatus == 1)
+Queue runnumber, skipOutliers, manualInterp from queue_run3pp.list 

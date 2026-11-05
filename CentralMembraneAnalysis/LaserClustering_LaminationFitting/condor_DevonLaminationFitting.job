@@ -1,0 +1,12 @@
+Universe	= vanilla
+Executable	= DevonLaminationFitting.sh
+notification	= Never
+Output		= /sphenix/user/dloomis/logs/laminations_run$(runnumber)_$(clusterId).$(process).txt
+Error		= /sphenix/user/dloomis/logs/laminations_run$(runnumber)_$(clusterId).$(process).err
+Log		= /tmp/condor_dloomis_$(clusterId).$(process).log
+Initialdir	= /sphenix/user/dloomis/Distortions
+Arguments	= $(runnumber) new_nocdbtag_v001 run3auau Feb26_2026_LaminationFits_beamOffFieldOff_globalcoords_highstat Feb26_2026_LaserClusters_beamOffFieldOff_globalcoords_highstat
+request_memory	= 6GB
+Priority           = 20
+PeriodicHold = (NumJobStarts>=1 && JobStatus == 1)
+Queue runnumber from runlist_Feb24_2026_78242.txt
